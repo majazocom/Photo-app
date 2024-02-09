@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Honk&display=swap');
+
+body {
+    color: white;
+    background-color: rgb(0, 10, 10);
+    font-family: 'Fira Sans', sans-serif;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Honk', system-ui;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > a {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+main {
+    padding: 1rem;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photos-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+}
+
+.photo-container {
+    min-height: 130px;
+    min-width: 130px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.photo-container:nth-of-type(1) {
+    grid-row: 1 / span 3;
+    height: unset;
+    width: unset;
+}
+
+.photo-container > img {
+    width: 30px;
+    height: 30px;
+}
+
+.show-more-container {
+    display: flex;
+    justify-content: center;
+}
