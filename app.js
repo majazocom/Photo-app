@@ -22,12 +22,21 @@ async function renderPhotos() {
             addToLikedPhotos(photo);
         });
         photoContainer.appendChild(heart);
+        photoContainer.addEventListener('click', () => {
+            console.log(photo);
+            addPhotoToLocalStorage(photo);
+            location.href = "photo.html";
+        })
         document.querySelector(".photos-container").appendChild(photoContainer);
     });
 };
 renderPhotos();
 
-function addToLikedPhotos(photo) {
+const addPhotoToLocalStorage = (photo) => {
+    localStorage.setItem('clickedPhoto', JSON.stringify(photo));
+}
+
+const addToLikedPhotos = (photo) => {
     // get current likedPhotos from ls
     likedPhotos = JSON.parse(localStorage.getItem('likedPhotos'));
     // check if it actually exists
