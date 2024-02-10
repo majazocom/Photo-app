@@ -17,7 +17,7 @@ async function renderPhotos() {
         photoContainer.style.backgroundImage = `url(${photo.urls.small_s3})`;
         photoContainer.setAttribute("class", "photo-container");
         let heart = document.createElement("img");
-        heart.setAttribute("src", "../assets/imgs/heart.png");
+        heart.setAttribute("src", "../assets/imgs/heart icon.svg");
         heart.addEventListener('click', () => {
             addToLikedPhotos(photo);
         });

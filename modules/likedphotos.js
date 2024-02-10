@@ -12,7 +12,7 @@ const renderLikedPhotosToUI = () => {
         LikedPhotoContainer.style.backgroundImage = `url(${liked.urls.thumb})`;
         LikedPhotoContainer.setAttribute("class", "photo-container");
         let close = document.createElement("img");
-        close.setAttribute("src", "../assets/imgs/close.png");
+        close.setAttribute("src", "../assets/imgs/cross.svg");
         close.addEventListener('click', () => {
             removeFromLiked(liked);
         });
