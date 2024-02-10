@@ -88,3 +88,20 @@ main {
     font-family: 'Fira Sans';
     cursor: pointer;
 }
+
+#show-more-icon {
+    animation: jumpingChevron 2s ease-in-out infinite;
+    animation-delay: 5s;
+}
+
+@keyframes jumpingChevron {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(9px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
