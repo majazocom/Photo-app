@@ -4,7 +4,7 @@ let photos = [];
 
 async function getPhotos() {
     let response = await fetch(
-        `https://api.unsplash.com/photos?page=${page}&client_id=BDCSStPov0Bl_S4aD7OaRBjG55IQcrT4qjxDSXQHmuU`
+        `https://api.unsplash.com/photos?page=${page}&per_page=12&client_id=BDCSStPov0Bl_S4aD7OaRBjG55IQcrT4qjxDSXQHmuU`
     );
     let data = await response.json();
     return await data;
