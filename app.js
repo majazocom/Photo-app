@@ -3,11 +3,23 @@ let page = 1;
 let photos = [];
 
 async function getPhotos() {
-    let response = await fetch(
-        `https://api.unsplash.com/photos?page=${page}&per_page=12&client_id=BDCSStPov0Bl_S4aD7OaRBjG55IQcrT4qjxDSXQHmuU`
-    );
-    let data = await response.json();
-    return await data;
+    // check if theres already been an API call within the last hour
+    let photos = JSON.parse(localStorage.getItem('photos'));
+    let latestAPICall = JSON.parse(localStorage.getItem('latestAPICall'));
+    let currentTime = new Date(Date.now());
+    if (photos && latestAPICall) {
+        let secondsBetweenAPICalls = (currentTime.getTime - latestAPICall.getTime) / 1000;
+        if (secondsBetweenAPICalls > 3600) {
+            let response = await fetch(
+                `https://api.unsplash.com/photos?page=${page}&per_page=12&client_id=BDCSStPov0Bl_S4aD7OaRBjG55IQcrT4qjxDSXQHmuU`
+            );
+            photos = await response.json();
+            localStorage.setItem('photos', JSON.stringify(await data));
+            localStorage.setItem('latestAPICall', JSON.stringify(new Date(Date.now())));
+        }
+    }
+
+    return await photos;
 }
 
 async function renderPhotos() {
@@ -26,7 +38,7 @@ async function renderPhotos() {
             console.log(photo);
             addPhotoToLocalStorage(photo);
             location.href = "photo.html";
-        })
+        });
         document.querySelector(".photos-container").appendChild(photoContainer);
     });
 };
