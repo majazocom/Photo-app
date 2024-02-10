@@ -14,7 +14,7 @@ async function renderPhotos() {
     photos = await getPhotos();
     photos.forEach((photo) => {
         const photoContainer = document.createElement("section");
-        photoContainer.style.backgroundImage = `url(${photo.urls.small_s3})`;
+        photoContainer.style.backgroundImage = `url(${photo.urls.regular})`;
         photoContainer.setAttribute("class", "photo-container");
         let heart = document.createElement("img");
         heart.setAttribute("src", "../assets/imgs/heart icon.svg");
@@ -23,7 +23,6 @@ async function renderPhotos() {
         });
         photoContainer.appendChild(heart);
         document.querySelector(".photos-container").appendChild(photoContainer);
-
     });
 };
 renderPhotos();
